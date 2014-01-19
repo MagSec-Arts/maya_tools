@@ -74,12 +74,10 @@ def serializeCurve(crv):
     num_cvs = degree + spans
     cvs = []
     
-    for i in range(spans):
+    for i in range(num_cvs):
         cv = cmds.xform("%s.cv[%s]" % (crv, i), q=True, os=True, t=True)
-        cvs.append(cv)
         
-    for i in range(degree):
-        cvs.append(cvs[i])
+        cvs.append(cv)
         
     cmd.append('setAttr "%s.cc" - type "nurbsCurve"')
     cmd.append('%s %s %s no 3' % (degree, spans, form))

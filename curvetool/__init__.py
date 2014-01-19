@@ -428,7 +428,7 @@ def __createCurves(parentObj, mel_cmds, shape):
         except:
             print "# Bad command: %s" % mel_cmd
             msg = "An error occurred creating curve " +\
-                  "%s of shape %s. " (i, shape) +\
+                  "%s of shape %s. " % (i, shape) +\
                   "See script editor for details." % (i, shape)
             mel.eval('''warning "%s"''' % msg)
             cmds.delete(crv)
